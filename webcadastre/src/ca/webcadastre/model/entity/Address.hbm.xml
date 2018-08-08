@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 8, 2018 4:59:46 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="webc" dynamic-insert="false" dynamic-update="false" mutable="true" name="Address" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="address">
+        <id name="idAddress" type="int">
+            <column name="idAddress"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="street" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="street"/>
+        </property>
+        <property generated="never" lazy="false" name="door" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="door"/>
+        </property>
+        <property generated="never" lazy="false" name="neighbourhood" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="neighbourhood"/>
+        </property>
+        <property generated="never" lazy="false" name="city" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="city"/>
+        </property>
+        <property generated="never" lazy="false" name="area" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="area"/>
+        </property>
+    </class>
+</hibernate-mapping>

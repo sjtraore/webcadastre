@@ -1,16 +1,16 @@
-package ca.webcadastre.entity;
+package ca.webcadastre.bean;
 
-public class Owner {
-	private String ownerId;
+public class PersonBean {
+	private int idPerson;
 	private String firstname;
 	private String lastname;
 
-	public String getOwnerId() {
-		return ownerId;
+	public int getIdPerson() {
+		return idPerson;
 	}
 
-	public void setOwnerId(String ownerId) {
-		this.ownerId = ownerId;
+	public void setIdPerson(int idPerson) {
+		this.idPerson = idPerson;
 	}
 
 	public String getFirstname() {
@@ -28,5 +28,4 @@ public class Owner {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 8, 2018 4:59:46 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="webc" dynamic-insert="false" dynamic-update="false" mutable="true" name="Property" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="property">
+        <id name="idProperty" type="int">
+            <column name="idProperty"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="TypeProperty" embed-xml="true" fetch="select" insert="true" name="typeProperty" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="type"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="numLot" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="num_lot"/>
+        </property>
+        <property generated="never" lazy="false" name="numParcel" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="num_parcel"/>
+        </property>
+        <property generated="never" lazy="false" name="address" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="address"/>
+        </property>
+        <property generated="never" lazy="false" name="active" optimistic-lock="true" type="int" unique="false">
+            <column name="active" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="persons" optimistic-lock="true" sort="unsorted" table="person_property">
+            <key on-delete="noaction">
+                <column name="idProperty" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="Person" not-found="exception" unique="false">
+                <column name="idPerson" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

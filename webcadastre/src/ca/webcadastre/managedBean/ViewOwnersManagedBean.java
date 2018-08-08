@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import ca.webcadastre.entity.Owner;
+import ca.webcadastre.model.entity.Owner;
 
 @ManagedBean
 @SessionScoped
