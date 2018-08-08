@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h2>Web Cadastre</h2>
+	<h2><p:outputLabel value="Web Cadastre"></p:outputLabel></h2>
+<p:dataTable value="#{viewOwnersManagedBean.owners}" var="owner">
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Owner ID"></h:outputText>
+		</f:facet>
+		<h:outputText value="#{owner.ownerId}"></h:outputText>
+	</p:column>
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Name"></h:outputText>
+		</f:facet>
+		<h:outputText value="#{owner.firstname} #{owner.lastname}"></h:outputText>
+	</p:column>	
+</p:dataTable>
+</html>
