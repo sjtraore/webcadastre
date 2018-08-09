@@ -87,10 +87,10 @@ public class TypePropertyHome {
 		}
 	}
 
-	public TypeProperty findById(TypePropertyId id) {
+	public TypeProperty findById(int id) {
 		log.debug("getting TypeProperty instance with id: " + id);
 		try {
-			TypeProperty instance = (TypeProperty) sessionFactory.getCurrentSession().get("TypeProperty", id);
+			TypeProperty instance = (TypeProperty) sessionFactory.getCurrentSession().get("typeId", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {

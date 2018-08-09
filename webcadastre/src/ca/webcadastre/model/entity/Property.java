@@ -17,7 +17,7 @@ public class Property implements java.io.Serializable {
 	private String numParcel;
 	private Integer address;
 	private int active;
-	private Set persons = new HashSet(0);
+	private Set<Person> persons = new HashSet<Person>(0);
 
 	public Property() {
 	}
@@ -28,7 +28,7 @@ public class Property implements java.io.Serializable {
 	}
 
 	public Property(int idProperty, TypeProperty typeProperty, String numLot, String numParcel, Integer address,
-			int active, Set persons) {
+			int active, Set<Person> persons) {
 		this.idProperty = idProperty;
 		this.typeProperty = typeProperty;
 		this.numLot = numLot;
@@ -86,11 +86,11 @@ public class Property implements java.io.Serializable {
 		this.active = active;
 	}
 
-	public Set getPersons() {
+	public Set<Person> getPersons() {
 		return this.persons;
 	}
 
-	public void setPersons(Set persons) {
+	public void setPersons(Set<Person> persons) {
 		this.persons = persons;
 	}
 

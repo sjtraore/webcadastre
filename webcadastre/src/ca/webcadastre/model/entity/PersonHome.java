@@ -31,62 +31,6 @@ public class PersonHome {
 		}
 	}
 
-	public void persist(Person transientInstance) {
-		log.debug("persisting Person instance");
-		try {
-			sessionFactory.getCurrentSession().persist(transientInstance);
-			log.debug("persist successful");
-		} catch (RuntimeException re) {
-			log.error("persist failed", re);
-			throw re;
-		}
-	}
-
-	public void attachDirty(Person instance) {
-		log.debug("attaching dirty Person instance");
-		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(instance);
-			log.debug("attach successful");
-		} catch (RuntimeException re) {
-			log.error("attach failed", re);
-			throw re;
-		}
-	}
-
-	public void attachClean(Person instance) {
-		log.debug("attaching clean Person instance");
-		try {
-			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
-			log.debug("attach successful");
-		} catch (RuntimeException re) {
-			log.error("attach failed", re);
-			throw re;
-		}
-	}
-
-	public void delete(Person persistentInstance) {
-		log.debug("deleting Person instance");
-		try {
-			sessionFactory.getCurrentSession().delete(persistentInstance);
-			log.debug("delete successful");
-		} catch (RuntimeException re) {
-			log.error("delete failed", re);
-			throw re;
-		}
-	}
-
-	public Person merge(Person detachedInstance) {
-		log.debug("merging Person instance");
-		try {
-			Person result = (Person) sessionFactory.getCurrentSession().merge(detachedInstance);
-			log.debug("merge successful");
-			return result;
-		} catch (RuntimeException re) {
-			log.error("merge failed", re);
-			throw re;
-		}
-	}
-
 	public Person findById(int id) {
 		log.debug("getting Person instance with id: " + id);
 		try {
@@ -103,7 +47,7 @@ public class PersonHome {
 		}
 	}
 
-	public List findByExample(Person instance) {
+	public List<Person> findByExample(Person instance) {
 		log.debug("finding Person instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession().createCriteria("Person").add(Example.create(instance))
@@ -112,6 +56,18 @@ public class PersonHome {
 			return results;
 		} catch (RuntimeException re) {
 			log.error("find by example failed", re);
+			throw re;
+		}
+	}
+	
+	public List<Person> findAll() {
+		log.debug("finding all the list of persons");
+		try {
+			List results = sessionFactory.getCurrentSession().createCriteria("Person").list();
+			log.debug("find by all successful, result size: " + results.size());
+			return results;
+		} catch (RuntimeException re) {
+			log.error("find by all failed", re);
 			throw re;
 		}
 	}
